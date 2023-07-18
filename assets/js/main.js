@@ -1,20 +1,20 @@
-  document.addEventListener("DOMContentLoaded", function() {
-    var sidebarCollapse = document.getElementById("sidebarCollapse");
-    var sidebarCollapseX = document.getElementById("sidebarCollapseX");
-    var sidebar = document.getElementById("sidebar");
-    var overlay = document.getElementsByClassName("overlay")[0];
-    
-    sidebarCollapse.addEventListener("click", function() {
-      sidebar.classList.add("active");
-    
-      if (sidebar.classList.contains("active")) {
-        overlay.classList.add("visible");
-        console.log("it's working!");
-      }
-    });
-    
-    sidebarCollapseX.addEventListener("click", function() {
-      sidebar.classList.remove("active");
-      overlay.classList.remove("visible");
-    });
+$(document).ready(function() {
+  $("#sidebarCollapse").on("click", function() {
+    $("#sidebar").addClass("active");
   });
+
+  $("#sidebarCollapseX").on("click", function() {
+    $("#sidebar").removeClass("active");
+  });
+
+  $("#sidebarCollapse").on("click", function() {
+    if ($("#sidebar").hasClass("active")) {
+      $(".overlay").addClass("visible");
+      console.log("it's working!");
+    }
+  });
+
+  $("#sidebarCollapseX").on("click", function() {
+    $(".overlay").removeClass("visible");
+  });
+});
